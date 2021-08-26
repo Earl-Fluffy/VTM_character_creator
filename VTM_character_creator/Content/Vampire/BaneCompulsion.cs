@@ -10,5 +10,11 @@ namespace VTM_character_creator.Content.Vampire
     {
         private string baneDescription;
         private string compulsionDescription;
+
+        public BaneCompulsion(string baneDescription, string compulsionDescription)
+        {
+            this.baneDescription = baneDescription;
+            this.compulsionDescription = compulsionDescription;
+        }
     }
 }
