@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,13 @@ namespace VTM_character_creator.Content
             disciplines = new Dictionary<string, Discipline>();
             advantages = new Dictionary<string, Advantage>();
             characterCreations = new Dictionary<string, CharacterCreation>();
+            string json = System.IO.File.ReadAllText(fileLocation);
+            JObject parsedJson = JObject.Parse(json);
+            
+            foreach(var o in parsedJson)
+            {
+                Console.WriteLine(o);
+            }
 
 
             //example attributes

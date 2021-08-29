@@ -17,7 +17,7 @@ namespace VTM_character_creator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new BaseContent("");
+            new BaseContent("test.json");
             Application.Run(new Form1());
         }
     }
