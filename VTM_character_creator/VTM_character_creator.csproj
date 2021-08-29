@@ -46,6 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Content\Advantage.cs" />
+    <Compile Include="Content\BaseContent.cs" />
+    <Compile Include="Content\CharacterCreation.cs" />
+    <Compile Include="Content\Vampire\BaneCompulsion.cs" />
+    <Compile Include="Content\Vampire\BloodTable.cs" />
+    <Compile Include="Content\Vampire\Clan.cs" />
+    <Compile Include="Content\Discipline.cs" />
+    <Compile Include="Content\PlayerSpecs\Attribute.cs" />
+    <Compile Include="Content\PlayerSpecs\DisciplineFamily.cs" />
+    <Compile Include="Content\PlayerSpecs\Skill.cs" />
+    <Compile Include="Content\PlayerSpecs\Spec.cs" />
+    <Compile Include="Content\Dice\Roll.cs" />
+    <Compile Include="Content\Vampire\PredatorType.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +79,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -79,5 +93,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
