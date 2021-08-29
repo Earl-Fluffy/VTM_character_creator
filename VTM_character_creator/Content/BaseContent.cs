@@ -30,39 +30,111 @@ namespace VTM_character_creator.Content
             disciplines = new Dictionary<string, Discipline>();
             advantages = new Dictionary<string, Advantage>();
             characterCreations = new Dictionary<string, CharacterCreation>();
+            if (!System.IO.File.Exists(fileLocation))
+            {
+                return;//If file does not exist, stop creating
+            }
             string json = System.IO.File.ReadAllText(fileLocation);
             JObject parsedJson = JObject.Parse(json);
             
-            foreach(var o in parsedJson)
+
+            JArray loadedAttributes = (JArray)parsedJson["Attributes"];
+            foreach(JObject attribute in loadedAttributes)
             {
-                Console.WriteLine(o);
+                string attributeName = attribute["Name"].ToString();
+                string attributeDescription = attribute["Description"].ToString();
+                uint attributeMaxLevel = Convert.ToUInt32(attribute["MaxLevel"].ToString());
+                attributes.Add(attributeName, new PlayerSpecs.Attribute(attributeName, attributeDescription, attributeMaxLevel));
             }
 
 
-            //example attributes
-            attributes.Add("Strength", new PlayerSpecs.Attribute("Strength", "force", 5));
-            attributes.Add("Dexterity", new PlayerSpecs.Attribute("Dexterity", "dex", 5));
-            attributes.Add("Stamina", new PlayerSpecs.Attribute("Stamina", "endurance", 5));
+            JArray loadedSkills = (JArray)parsedJson["Skills"];
+            foreach (JObject skill in loadedSkills)
+            {
+                string attributeName = skill["Name"].ToString();
+                string attributeDescription = skill["Description"].ToString();
+                uint attributeMaxLevel = Convert.ToUInt32(skill["MaxLevel"].ToString());
+                bool attributeSeciality = false;
+                if (skill.ContainsKey("FreeSpeciality") && skill["FreeSpeciality"].ToString() == "1")
+                {
+                    attributeSeciality = true;
+                }
+                skills.Add(attributeName, new PlayerSpecs.Skill(attributeName, attributeDescription, attributeMaxLevel,attributeSeciality));
+            }
 
-            //example skills
-            skills.Add("Athletics", new Skill("Athletics", "ability to run", 5));
-            skills.Add("Stealth", new Skill("Stealth", "ability to hide", 5));
-            skills.Add("Firearms", new Skill("Firearms", "ability to fire", 5));
+            JArray loadedDisciplineTypes = (JArray)parsedJson["DisciplineTypes"];
+            foreach (JObject disciplineType in loadedDisciplineTypes)
+            {
+                string attributeName = disciplineType["Name"].ToString();
+                string attributeDescription = disciplineType["Description"].ToString();
+                uint attributeMaxLevel = Convert.ToUInt32(disciplineType["MaxLevel"].ToString());
+                disciplineTypes.Add(attributeName, new PlayerSpecs.DisciplineFamily(attributeName, attributeDescription, attributeMaxLevel));
+            }
 
-            //example discplineTypes
-            disciplineTypes.Add("Potence", new DisciplineFamily("Potence", "pure power", 5));
-            disciplineTypes.Add("Presence", new DisciplineFamily("Presence", "allure", 5));
-            disciplineTypes.Add("Protean", new DisciplineFamily("Protean", "Transformations", 5));
+            JArray loadedClans = (JArray)parsedJson["Clans"];
+            foreach (JObject clan in loadedClans)
+            {
+                string clanName = clan["Name"].ToString();
+                LinkedList<DisciplineFamily> clanDisciplines = new LinkedList<DisciplineFamily>();
+                foreach(string discipline in clan["Disciplines"])
+                {
+                    clanDisciplines.AddLast(disciplineTypes[discipline]);
+                }
+                string clanBane = clan["Bane"].ToString();
+                string clanCompulsion = clan["Compulsion"].ToString();
+                clans.Add(clanName, new Clan(clanName, clanDisciplines, new BaneCompulsion(clanBane, clanCompulsion)));
+            }
 
-            //example clan
-            clans.Add("TestClan", new Clan("TestClan", new LinkedList<DisciplineFamily>(new DisciplineFamily[] { disciplineTypes["Potence"], disciplineTypes["Presence"] }), new BaneCompulsion("bane descr","compulsion descr")));
+            JArray loadedDisciplines = (JArray)parsedJson["Disciplines"];
+            foreach (JObject discipline in loadedDisciplines)
+            {
+                string disciplineName = discipline["Name"].ToString();
+                string disciplineType = discipline["DisciplineType"].ToString();
+                string disciplineFluff = discipline["FluffText"].ToString();
+                string disciplineSystem = discipline["System"].ToString();
+                uint disciplineLevel = Convert.ToUInt32(discipline["Level"].ToString());
+                uint disciplineCost = Convert.ToUInt32(discipline["Cost"].ToString());
+                string disciplineDuration = discipline["Duration"].ToString();
 
+                Dice.Roll playerRoll = null;
+                Dice.Roll opposingRoll = null;
 
-            //example disciplines
-            disciplines.Add("Daunt", new Discipline(disciplineTypes["Presence"], "Daunt", "fluff text", "euh be daunting", 1, new Dice.Roll(attributes["Strength"], skills["Athletics"]), null));
+                if (discipline.ContainsKey("PlayerRoll"))
+                {
+                    LinkedList<string> specs = new LinkedList<string>();
+                    foreach(string spec in discipline["PlayerRoll"])
+                    {
+                        specs.AddLast(spec);
+                    }
+                    if(specs.Count() == 2)
+                    {
+                        playerRoll = new Dice.Roll(specs.First(), specs.Last());
+                    }
+                }
+                if (discipline.ContainsKey("OpposingRoll"))
+                {
+                    LinkedList<string> specs = new LinkedList<string>();
+                    foreach (string spec in discipline["OpposingRoll"])
+                    {
+                        specs.AddLast(spec);
+                    }
+                    if (specs.Count() == 2)
+                    {
+                        opposingRoll = new Dice.Roll(specs.First(), specs.Last());
+                    }
+                }
+                disciplines.Add(disciplineName, new Discipline(disciplineTypes[disciplineType], disciplineName, disciplineFluff, disciplineSystem, disciplineLevel, playerRoll, opposingRoll, disciplineCost, disciplineDuration));
+            }
 
-            //example advantages
-            advantages.Add("Stunning", new Advantage("Stunning",4,true,new LinkedList<Advantage>(),null,"be stunning"));
+            JArray loadedAdvantages = (JArray)parsedJson["Advantages"];
+            foreach (JObject advantage in loadedAdvantages)
+            {
+                string advantageName = advantage["Name"].ToString();
+                uint advantageCost = Convert.ToUInt32(advantage["Cost"].ToString());
+                string advantageCategory = advantage["Category"].ToString();
+                string advantageDescription = advantage["Description"].ToString();
+                advantages.Add(advantageName, new Advantage(advantageName, advantageCost, true, null, advantageCategory, advantageDescription));
+            }
         }
     }
 }
