@@ -19,7 +19,7 @@ namespace VTM_character_creator.Content
         private Dictionary<string, PlayerSpecs.Attribute> attributes;
         private Dictionary<string, Skill> skills;
         private Dictionary<string, DisciplineFamily> disciplineTypes;
-
+        private Dictionary<string, PredatorType> predatorTypes;
         private Dictionary<string, CharacterCreation> characterCreations;
 
         public BaseContent(string fileLocation)
@@ -31,6 +31,8 @@ namespace VTM_character_creator.Content
             disciplines = new Dictionary<string, Discipline>();
             advantages = new Dictionary<string, AdvantageCategory>();
             characterCreations = new Dictionary<string, CharacterCreation>();
+            predatorTypes = new Dictionary<string, PredatorType>();
+
             if (!System.IO.File.Exists(fileLocation))
             {
                 return;//If file does not exist, stop creating
@@ -160,8 +162,68 @@ namespace VTM_character_creator.Content
                     }
                     advantageSubChoice.AddLast(new Advantage(choiceName, choiceDescription, choiceCost, choicePositive));
                 }
-
                 advantages.Add(advantageName, new AdvantageCategory(advantageName, advantageDescription, advantageUnique,advantageChoice,advantageSubChoice));
+            }
+
+            JArray loadedPredatorTypes = (JArray)parsedJson["PredatorTypes"];
+            foreach(JObject predatorType in loadedPredatorTypes)
+            {
+                string predatorTypeName = predatorType["Name"].ToString();
+                string predatorTypeDescription = predatorType["Description"].ToString();
+                LinkedList<LinkedList<(Skill, string)>> predatorTypeBonusSpecialities = new LinkedList<LinkedList<(Skill,string)>>();
+                LinkedList<LinkedList<(DisciplineFamily, Clan)>> predatorTypeBonusDisciplineLevel = new LinkedList<LinkedList<(DisciplineFamily, Clan)>>();
+                LinkedList<(uint, LinkedList<(Advantage,string)>)> predatorTypeBonusFlaws= new LinkedList<(uint, LinkedList<(Advantage,string)>)>();
+                LinkedList<(uint, LinkedList<(Advantage,string)>)> predatorTypeBonusAdvantages = new LinkedList<(uint, LinkedList<(Advantage,string)>)>();
+                int predatorTypeBonusHumanity = 0;
+                int predatorTypeBonusPotency = 0;
+
+                if (predatorType.ContainsKey("BonusSpecialities"))
+                {
+                    foreach(JArray bonusSpecialities in predatorType["BonusSpecialities"])
+                    {
+                        LinkedList<(Skill, string)> specialityChoice = new LinkedList<(Skill, string)>();
+                        foreach(JObject choice in bonusSpecialities)
+                        {
+                            specialityChoice.AddLast((skills[choice["Skill"].ToString()], choice["Name"].ToString()));
+                        }
+                        predatorTypeBonusSpecialities.AddLast(specialityChoice);
+                    }
+                }
+                if (predatorType.ContainsKey("BonusDiscipline"))
+                {
+                    foreach(JArray bonusDisciplines in predatorType["BonusDiscipline"])
+                    {
+                        LinkedList<(DisciplineFamily, Clan)> disciplineChoice = new LinkedList<(DisciplineFamily, Clan)>();
+                        foreach(JObject choice in bonusDisciplines)
+                        {
+                            DisciplineFamily choiceName = disciplineTypes[ choice["Name"].ToString()];
+                            Clan choiceRequiredClan = null;
+                            if (choice.ContainsKey("RequiredClan"))
+                            {
+                                choiceRequiredClan = clans[choice["RequiredClan"].ToString()];
+                            }
+                            disciplineChoice.AddLast((choiceName, choiceRequiredClan));
+                        }
+                        predatorTypeBonusDisciplineLevel.AddLast(disciplineChoice);
+                    }
+                }
+                if (predatorType.ContainsKey("Humanity"))
+                {
+                    predatorTypeBonusHumanity = Convert.ToInt32(predatorType["Humanity"].ToString());
+                }
+                if (predatorType.ContainsKey("Potency"))
+                {
+                    predatorTypeBonusPotency = Convert.ToInt32(predatorType["Potency"].ToString());
+                }
+                if (predatorType.ContainsKey("BonusAdvantages"))
+                {
+                    foreach(JObject advantageChoice in predatorType["BonusAdvantages"])
+                    {
+                        uint cost = Convert.ToUInt32(advantageChoice["Cost"].ToString());
+                    }
+                }
+
+                predatorTypes.Add(predatorTypeName, new PredatorType(predatorTypeBonusSpecialities, predatorTypeBonusDisciplineLevel, predatorTypeBonusFlaws, predatorTypeBonusAdvantages, predatorTypeName, predatorTypeDescription, predatorTypeBonusHumanity, predatorTypeBonusPotency));
             }
         }
     }

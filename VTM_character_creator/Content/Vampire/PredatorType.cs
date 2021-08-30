@@ -11,25 +11,23 @@ namespace VTM_character_creator.Content.Vampire
 {
     class PredatorType
     {
-        private LinkedList<LinkedList<Skill>> bonusSpecialities;
-        private LinkedList<LinkedList<DisciplineFamily>> bonusDisciplineLevel;
-        private LinkedList<LinkedList<AdvantageCategory>> bonusAdvantages;
-        private LinkedList<LinkedList<AdvantageCategory>> bonusFlaws;
+        private LinkedList<LinkedList<(Skill, string)>> bonusSpecialities;
+        private LinkedList<LinkedList<(DisciplineFamily,Clan)>> bonusDisciplineLevel;
+        private LinkedList<(uint, LinkedList<(Advantage, string)>)> bonusFlaws;
+        private LinkedList<(uint, LinkedList<(Advantage, string)>)> bonusAdvantages;
         private string name;
         private string description;
-        private Roll huntingPool;
         private int bonusHumanity;
         private int bonusPotency;
 
-        public PredatorType(LinkedList<LinkedList<Skill>> bonusSpecialities, LinkedList<LinkedList<DisciplineFamily>> bonusDisciplineLevel, LinkedList<LinkedList<AdvantageCategory>> bonusAdvantages, LinkedList<LinkedList<AdvantageCategory>> bonusFlaws, string name, string description, Roll huntingPool, int bonusHumanity, int bonusPotency)
+        public PredatorType(LinkedList<LinkedList<(Skill, string)>> bonusSpecialities, LinkedList<LinkedList<(DisciplineFamily, Clan)>> bonusDisciplineLevel, LinkedList<(uint, LinkedList<(Advantage,string)>)> bonusFlaws, LinkedList<(uint, LinkedList<(Advantage,string)>)> bonusAdvantages, string name, string description, int bonusHumanity, int bonusPotency)
         {
             this.bonusSpecialities = bonusSpecialities;
             this.bonusDisciplineLevel = bonusDisciplineLevel;
-            this.bonusAdvantages = bonusAdvantages;
             this.bonusFlaws = bonusFlaws;
+            this.bonusAdvantages = bonusAdvantages;
             this.name = name;
             this.description = description;
-            this.huntingPool = huntingPool;
             this.bonusHumanity = bonusHumanity;
             this.bonusPotency = bonusPotency;
         }
