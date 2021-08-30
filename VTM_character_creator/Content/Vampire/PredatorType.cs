@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VTM_character_creator.Content.Advantages;
 using VTM_character_creator.Content.Dice;
 using VTM_character_creator.Content.PlayerSpecs;
 
@@ -12,15 +13,15 @@ namespace VTM_character_creator.Content.Vampire
     {
         private LinkedList<LinkedList<Skill>> bonusSpecialities;
         private LinkedList<LinkedList<DisciplineFamily>> bonusDisciplineLevel;
-        private LinkedList<LinkedList<Advantage>> bonusAdvantages;
-        private LinkedList<LinkedList<Advantage>> bonusFlaws;
+        private LinkedList<LinkedList<AdvantageCategory>> bonusAdvantages;
+        private LinkedList<LinkedList<AdvantageCategory>> bonusFlaws;
         private string name;
         private string description;
         private Roll huntingPool;
         private int bonusHumanity;
         private int bonusPotency;
 
-        public PredatorType(LinkedList<LinkedList<Skill>> bonusSpecialities, LinkedList<LinkedList<DisciplineFamily>> bonusDisciplineLevel, LinkedList<LinkedList<Advantage>> bonusAdvantages, LinkedList<LinkedList<Advantage>> bonusFlaws, string name, string description, Roll huntingPool, int bonusHumanity, int bonusPotency)
+        public PredatorType(LinkedList<LinkedList<Skill>> bonusSpecialities, LinkedList<LinkedList<DisciplineFamily>> bonusDisciplineLevel, LinkedList<LinkedList<AdvantageCategory>> bonusAdvantages, LinkedList<LinkedList<AdvantageCategory>> bonusFlaws, string name, string description, Roll huntingPool, int bonusHumanity, int bonusPotency)
         {
             this.bonusSpecialities = bonusSpecialities;
             this.bonusDisciplineLevel = bonusDisciplineLevel;

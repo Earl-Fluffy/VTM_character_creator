@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VTM_character_creator.Content.Advantages;
 using VTM_character_creator.Content.PlayerSpecs;
 using VTM_character_creator.Content.Vampire;
 
@@ -13,7 +14,7 @@ namespace VTM_character_creator.Content
     {
         private Dictionary<string, Clan> clans;
         private Dictionary<string, Discipline> disciplines;
-        private Dictionary<string, Advantage> advantages;
+        private Dictionary<string, AdvantageCategory> advantages;
 
         private Dictionary<string, PlayerSpecs.Attribute> attributes;
         private Dictionary<string, Skill> skills;
@@ -28,7 +29,7 @@ namespace VTM_character_creator.Content
             disciplineTypes = new Dictionary<string, DisciplineFamily>();
             clans = new Dictionary<string, Clan>();
             disciplines = new Dictionary<string, Discipline>();
-            advantages = new Dictionary<string, Advantage>();
+            advantages = new Dictionary<string, AdvantageCategory>();
             characterCreations = new Dictionary<string, CharacterCreation>();
             if (!System.IO.File.Exists(fileLocation))
             {
@@ -130,10 +131,37 @@ namespace VTM_character_creator.Content
             foreach (JObject advantage in loadedAdvantages)
             {
                 string advantageName = advantage["Name"].ToString();
-                uint advantageCost = Convert.ToUInt32(advantage["Cost"].ToString());
-                string advantageCategory = advantage["Category"].ToString();
+                bool advantageUnique = advantage["Unique"].ToString() == "1";
                 string advantageDescription = advantage["Description"].ToString();
-                advantages.Add(advantageName, new Advantage(advantageName, advantageCost, true, null, advantageCategory, advantageDescription));
+                LinkedList<Advantage> advantageChoice = new LinkedList<Advantage>();
+                LinkedList<Advantage> advantageSubChoice = new LinkedList<Advantage>();
+
+                foreach(JObject choice in advantage["Choice"])
+                {
+                    string choiceName = choice["Name"].ToString();
+                    uint choiceCost = Convert.ToUInt32(choice["Cost"].ToString());
+                    string choiceDescription = choice["Description"].ToString();
+                    bool choicePositive = true;
+                    if (choice.ContainsKey("Positive"))
+                    {
+                        choicePositive = choice["Positive"].ToString() == "1";
+                    }
+                    advantageChoice.AddLast(new Advantage(choiceName, choiceDescription, choiceCost, choicePositive));
+                }
+                foreach(JObject subChoice in advantage["SubChoices"])
+                {
+                    string choiceName = subChoice["Name"].ToString();
+                    uint choiceCost = Convert.ToUInt32(subChoice["Cost"].ToString());
+                    string choiceDescription = subChoice["Description"].ToString();
+                    bool choicePositive = true;
+                    if (subChoice.ContainsKey("Positive"))
+                    {
+                        choicePositive = subChoice["Positive"].ToString() == "1";
+                    }
+                    advantageSubChoice.AddLast(new Advantage(choiceName, choiceDescription, choiceCost, choicePositive));
+                }
+
+                advantages.Add(advantageName, new AdvantageCategory(advantageName, advantageDescription, advantageUnique,advantageChoice,advantageSubChoice));
             }
         }
     }

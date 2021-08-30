@@ -49,7 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Content\Advantage.cs" />
+    <Compile Include="Content\Advantages\Advantage.cs" />
+    <Compile Include="Content\Advantages\AdvantageCategory.cs" />
     <Compile Include="Content\BaseContent.cs" />
     <Compile Include="Content\CharacterCreation.cs" />
     <Compile Include="Content\Vampire\BaneCompulsion.cs" />
