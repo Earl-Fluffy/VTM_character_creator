@@ -53,6 +53,7 @@
     <Compile Include="Content\Advantages\AdvantageCategory.cs" />
     <Compile Include="Content\BaseContent.cs" />
     <Compile Include="Content\CharacterCreation.cs" />
+    <Compile Include="Content\SkillDistribution.cs" />
     <Compile Include="Content\Vampire\BaneCompulsion.cs" />
     <Compile Include="Content\Vampire\BloodTable.cs" />
     <Compile Include="Content\Vampire\Clan.cs" />

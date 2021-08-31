@@ -21,6 +21,7 @@ namespace VTM_character_creator.Content
         private Dictionary<string, DisciplineFamily> disciplineTypes;
         private Dictionary<string, PredatorType> predatorTypes;
         private Dictionary<string, CharacterCreation> characterCreations;
+        private Dictionary<string, SkillDistribution> skillDistributions;
 
         public BaseContent(string fileLocation)
         {
@@ -32,6 +33,7 @@ namespace VTM_character_creator.Content
             advantages = new Dictionary<string, AdvantageCategory>();
             characterCreations = new Dictionary<string, CharacterCreation>();
             predatorTypes = new Dictionary<string, PredatorType>();
+            skillDistributions = new Dictionary<string, SkillDistribution>();
 
             if (!System.IO.File.Exists(fileLocation))
             {
@@ -248,6 +250,52 @@ namespace VTM_character_creator.Content
                 }
 
                 predatorTypes.Add(predatorTypeName, new PredatorType(predatorTypeBonusSpecialities, predatorTypeBonusDisciplineLevel, predatorTypeBonusFlaws, predatorTypeBonusAdvantages, predatorTypeName, predatorTypeDescription, predatorTypeBonusHumanity, predatorTypeBonusPotency));
+            }
+
+            JArray loadedSkillDistributions = (JArray)parsedJson["SkillDistributions"];
+            foreach (JObject skillDistribution in loadedSkillDistributions)
+            {
+                string skillDistributionName = skillDistribution["Name"].ToString();
+                LinkedList<(uint, uint)> skillDistributionData = new LinkedList<(uint, uint)>();
+                foreach(JObject distributionData in skillDistribution["SkillDistribution"])
+                {
+                    uint rating = Convert.ToUInt32(distributionData["Rating"].ToString());
+                    uint number = Convert.ToUInt32(distributionData["Number"].ToString());
+                    skillDistributionData.AddLast((rating,number));
+                }
+                skillDistributions.Add(skillDistributionName, new SkillDistribution(skillDistributionData, skillDistributionName));
+            }
+            JArray loadedCharacterCreations = (JArray)parsedJson["CharacterCreations"];
+            foreach(JObject characterCreation in loadedCharacterCreations)
+            {
+                string characterCreationName = characterCreation["Name"].ToString();
+                string characterCreationDescription = characterCreation["Description"].ToString();
+                LinkedList<(uint, uint)> characterCreationAttributes = new LinkedList<(uint, uint)>();
+                LinkedList<SkillDistribution> characterCreationSkills = new LinkedList<SkillDistribution>();
+                LinkedList<(uint, uint)> characterCreationDisciplines = new LinkedList<(uint, uint)>();
+                uint characterCreationAdvantage = Convert.ToUInt32(characterCreation["AdvantagePool"].ToString());
+                uint characterCreationFlaws = Convert.ToUInt32(characterCreation["FlawPool"].ToString());
+                uint characterCreationHumanity = Convert.ToUInt32(characterCreation["BaseHumanity"].ToString());
+                uint characterCreationXP = Convert.ToUInt32(characterCreation["BaseXP"].ToString());
+
+                foreach(JObject attributeDistribution in characterCreation["AttributeDistribution"])
+                {
+                    uint rating = Convert.ToUInt32(attributeDistribution["Rating"].ToString());
+                    uint number = Convert.ToUInt32(attributeDistribution["Number"].ToString());
+                    characterCreationAttributes.AddLast((rating,number));
+                }
+                foreach(string skillDistribution in characterCreation["SkillDistribution"])
+                {
+                    characterCreationSkills.AddLast(skillDistributions[skillDistribution]);
+                }
+                foreach(JObject disciplineDistribution in characterCreation["DisciplineDistribution"])
+                {
+                    uint rating = Convert.ToUInt32(disciplineDistribution["Rating"].ToString());
+                    uint number = Convert.ToUInt32(disciplineDistribution["Number"].ToString());
+                    characterCreationDisciplines.AddLast((rating, number));
+                }
+
+                characterCreations.Add(characterCreationName, new CharacterCreation(characterCreationName, characterCreationDescription, characterCreationAttributes, characterCreationSkills, characterCreationDisciplines, characterCreationAdvantage, characterCreationFlaws, characterCreationHumanity, characterCreationXP));
             }
         }
     }
