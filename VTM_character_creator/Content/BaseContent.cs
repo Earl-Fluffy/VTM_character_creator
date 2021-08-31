@@ -150,17 +150,20 @@ namespace VTM_character_creator.Content
                     }
                     advantageChoice.AddLast(new Advantage(choiceName, choiceDescription, choiceCost, choicePositive));
                 }
-                foreach(JObject subChoice in advantage["SubChoices"])
+                if (advantage.ContainsKey("SubChoices"))
                 {
-                    string choiceName = subChoice["Name"].ToString();
-                    uint choiceCost = Convert.ToUInt32(subChoice["Cost"].ToString());
-                    string choiceDescription = subChoice["Description"].ToString();
-                    bool choicePositive = true;
-                    if (subChoice.ContainsKey("Positive"))
+                    foreach (JObject subChoice in advantage["SubChoices"])
                     {
-                        choicePositive = subChoice["Positive"].ToString() == "1";
+                        string choiceName = subChoice["Name"].ToString();
+                        uint choiceCost = Convert.ToUInt32(subChoice["Cost"].ToString());
+                        string choiceDescription = subChoice["Description"].ToString();
+                        bool choicePositive = true;
+                        if (subChoice.ContainsKey("Positive"))
+                        {
+                            choicePositive = subChoice["Positive"].ToString() == "1";
+                        }
+                        advantageSubChoice.AddLast(new Advantage(choiceName, choiceDescription, choiceCost, choicePositive));
                     }
-                    advantageSubChoice.AddLast(new Advantage(choiceName, choiceDescription, choiceCost, choicePositive));
                 }
                 advantages.Add(advantageName, new AdvantageCategory(advantageName, advantageDescription, advantageUnique,advantageChoice,advantageSubChoice));
             }
