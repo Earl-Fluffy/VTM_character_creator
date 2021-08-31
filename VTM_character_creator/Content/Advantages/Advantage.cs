@@ -8,7 +8,7 @@ namespace VTM_character_creator.Content.Advantages
 {
     class Advantage
     {
-        private string name;
+        private readonly string name;
         private string description;
         private uint cost;
         private bool positive;
@@ -22,5 +22,7 @@ namespace VTM_character_creator.Content.Advantages
             this.positive = positive;
             this.required = required;
         }
+
+        public string Name => name;
     }
 }

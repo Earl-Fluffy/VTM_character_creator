@@ -172,8 +172,8 @@ namespace VTM_character_creator.Content
                 string predatorTypeDescription = predatorType["Description"].ToString();
                 LinkedList<LinkedList<(Skill, string)>> predatorTypeBonusSpecialities = new LinkedList<LinkedList<(Skill,string)>>();
                 LinkedList<LinkedList<(DisciplineFamily, Clan)>> predatorTypeBonusDisciplineLevel = new LinkedList<LinkedList<(DisciplineFamily, Clan)>>();
-                LinkedList<(uint, LinkedList<(Advantage,string)>)> predatorTypeBonusFlaws= new LinkedList<(uint, LinkedList<(Advantage,string)>)>();
-                LinkedList<(uint, LinkedList<(Advantage,string)>)> predatorTypeBonusAdvantages = new LinkedList<(uint, LinkedList<(Advantage,string)>)>();
+                LinkedList<(uint, LinkedList<(AdvantageCategory, Advantage, string)>)> predatorTypeBonusFlaws= new LinkedList<(uint, LinkedList<(AdvantageCategory, Advantage, string)>)>();
+                LinkedList<(uint, LinkedList<(AdvantageCategory, Advantage, string)>)> predatorTypeBonusAdvantages = new LinkedList<(uint, LinkedList<(AdvantageCategory, Advantage, string)>)>();
                 int predatorTypeBonusHumanity = 0;
                 int predatorTypeBonusPotency = 0;
 
@@ -220,6 +220,27 @@ namespace VTM_character_creator.Content
                     foreach(JObject advantageChoice in predatorType["BonusAdvantages"])
                     {
                         uint cost = Convert.ToUInt32(advantageChoice["Cost"].ToString());
+                        LinkedList<(AdvantageCategory, Advantage, string)> advantagesToAdd = new LinkedList<(AdvantageCategory, Advantage, string)>();
+                        foreach(JObject advantage in advantageChoice["Advantages"])
+                        {
+                            AdvantageCategory advantageCategory = advantages[advantage["Category"].ToString()];
+                            advantagesToAdd.AddLast((advantageCategory, advantageCategory.GetChoiceFromString(advantage["Advantage"].ToString()), advantage["Addition"].ToString()));
+                        }
+                        predatorTypeBonusAdvantages.AddLast((cost, advantagesToAdd));
+                    }
+                }
+                if (predatorType.ContainsKey("BonusFlaws"))
+                {
+                    foreach (JObject advantageChoice in predatorType["BonusFlaws"])
+                    {
+                        uint cost = Convert.ToUInt32(advantageChoice["Cost"].ToString());
+                        LinkedList<(AdvantageCategory, Advantage, string)> advantagesToAdd = new LinkedList<(AdvantageCategory, Advantage, string)>();
+                        foreach (JObject advantage in advantageChoice["Advantages"])
+                        {
+                            AdvantageCategory advantageCategory = advantages[advantage["Category"].ToString()];
+                            advantagesToAdd.AddLast((advantageCategory, advantageCategory.GetChoiceFromString(advantage["Advantage"].ToString()), advantage["Addition"].ToString()));
+                        }
+                        predatorTypeBonusFlaws.AddLast((cost, advantagesToAdd));
                     }
                 }
 

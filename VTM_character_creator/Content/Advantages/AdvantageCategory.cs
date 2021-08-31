@@ -24,5 +24,17 @@ namespace VTM_character_creator.Content.Advantages
             this.choice = choice;
             this.secondaryChoices = secondaryChoices;
         }
+
+        public Advantage GetChoiceFromString(string choiceName)
+        {
+            foreach(Advantage advantage in choice)
+            {
+                if(advantage.Name == choiceName)
+                {
+                    return advantage;
+                }
+            }
+            return null;
+        }
     }
 }
