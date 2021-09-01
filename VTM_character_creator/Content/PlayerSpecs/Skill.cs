@@ -8,9 +8,13 @@ namespace VTM_character_creator.Content.PlayerSpecs
 {
     class Skill : Spec
     {
-        public Skill(string name, string description, uint maxLevel) : base(name, description, maxLevel)
+        private readonly bool freeSpeciality;
+        public Skill(string name, string description, uint maxLevel, bool freeSpeciality = false) : base(name, description, maxLevel)
         {
+            this.freeSpeciality = freeSpeciality;
         }
+
+        public bool FreeSpeciality => freeSpeciality;
 
         public override string getType()
         {

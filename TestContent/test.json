@@ -1,0 +1,988 @@
+{
+    "Attributes": [
+      {
+        "Name": "Strength",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Dexterity",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Stamina",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Charisma",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Manipulation",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Composure",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Intelligence",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Wits",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Resolve",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+    ],
+    "Skills":[
+      {
+        "Name": "Athletics",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Brawl",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Craft",
+        "Description": "description",
+        "MaxLevel": "5",
+        "FreeSpeciality": "1"
+      },
+      {
+        "Name": "Drive",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Firearms",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Larceny",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Melee",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Stealth",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Survival",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Animal Ken",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Etiquette",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Insight",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Intimidation",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Leadership",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Performance",
+        "Description": "description",
+        "MaxLevel": "5",
+        "FreeSpeciality": "1"
+      },
+      {
+        "Name": "Persuasion",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Streetwise",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Subterfuge",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Academics",
+        "Description": "description",
+        "MaxLevel": "5",
+        "FreeSpeciality": "1"
+      },
+      {
+        "Name": "Awareness",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Finance",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Investigation",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Medicine",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Occult",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Politics",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Science",
+        "Description": "description",
+        "MaxLevel": "5",
+        "FreeSpeciality": "1"
+      },
+      {
+        "Name": "Technology",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+    ],
+    "DisciplineTypes": [
+      {
+        "Name": "Animalism",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Auspex",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Celerity",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Dominate",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Fortitude",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Obfuscate",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Potence",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Presence",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Protean",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Oblivion",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+      {
+        "Name": "Blood Sorcery",
+        "Description": "description",
+        "MaxLevel": "5"
+      },
+    ],
+    "Clans": [
+      {
+        "Name": "Brujah",
+        "Disciplines": [
+          "Celerity",
+          "Potence",
+          "Presence"
+        ],
+        "Bane": "Brujah bane",
+        "Compulsion": "Brujah compulsion"
+      },
+      {
+        "Name": "Gangrel",
+        "Disciplines": [
+          "Animalism",
+          "Fortitude",
+          "Protean"
+        ],
+        "Bane": "Gangrel bane",
+        "Compulsion": "Gangrel compulsion"
+      },
+      {
+        "Name": "Tremere",
+        "Disciplines": [
+          "Blood Sorcery",
+          "Auspex",
+          "Dominate"
+        ],
+        "Bane": "Tremere bane",
+        "Compulsion": "Tremere compulsion"
+      }
+    ],
+    "Disciplines": [
+      {
+        "Name": "Awe",
+        "DisciplineType": "Presence",
+        "FluffText": "Awe fluff",
+        "System": "Awe system",
+        "Level": "1",
+        "Cost": "0",
+        "Duration": "Once scene",
+        "PlayerRoll": [
+          "Manipulation",
+          "Presence"
+        ],
+        "OpposingRoll": [
+          "Composure",
+          "Intelligence"
+        ]
+      }
+    ],
+    "Advantages": [
+      {
+        "Name": "Looks",
+        "Description": "These modifiers only apply when you can be seen.",
+        "Unique": "1",
+        "Choice": [
+          {
+            "Name": "Beautiful",
+            "Cost": "2",
+            "Description": "You add one extra die to all appropriate Social dice pools"
+          },
+          {
+            "Name": "Stunning",
+            "Cost": "4",
+            "Description": "You add two extra dice to all appropriate Social dice pools"
+          },
+          {
+            "Name": "Repulsive",
+            "Cost": "2",
+            "Positive": "0",
+            "Description": "You lose two dice from all relevant Social dice pools."
+          },
+          {
+            "Name": "Ugly",
+            "Cost": "1",
+            "Positive": "0",
+            "Description": "You lose one die from all relevant Social dice pools."
+          },
+        ],
+        "SubChoices":[]
+      },
+      {
+        "Name": "Contacts",
+        "Description": "Contacts with other people",
+        "Unique": "0",
+        "Choice": [
+          {
+            "Name": "Contacts 3",
+            "Cost": "3",
+            "Description": "contacts 3 description"
+          }
+        ],
+        "SubChoices": []
+      },
+      {
+        "Name": "Fame",
+        "Description": "Fame description",
+        "Unique": "0",
+        "Choice": [
+          {
+            "Name": "Dark Secret 2",
+            "Cost": "2",
+            "Positive": "0",
+            "Description": "for example diablerist"
+          },
+          {
+            "Name": "Dark Secret 1",
+            "Cost": "1",
+            "Positive": "0",
+            "Description": "dark secret 1 description"
+          }
+        ],
+        "SubChoices": []
+      },
+      {
+        "Name": "Status",
+        "Description": "Status description",
+        "Unique": "0",
+        "Choice": [
+          {
+            "Name": "Shunned",
+            "Cost": "2",
+            "Positive": "0",
+            "Description": "You’re completely loathed by this sect."
+          }
+        ],
+        "SubChoices": []
+      },
+      {
+        "Name": "Feeding",
+        "Description": "Merits for feeding",
+        "Unique": "0",
+        "Choice": [
+          {
+            "Name": "Prey Exclusion",
+            "Cost": "1",
+            "Positive": "0",
+            "Description": "You refuse to hunt a certain class of prey"
+          },
+          {
+            "Name": "Iron Gullet",
+            "Cost": "3",
+            "Description": "You can feed from old blood"
+          }
+        ],
+        "SubChoices": []
+      },
+      {
+        "Name": "Allies",
+        "Description": "Allies and fiends",
+        "Unique": "0",
+        "Choice": [
+          {
+            "Name": "Enemy 2",
+            "Cost": "2",
+            "Positive": "0",
+            "Description": "Deadly mortal"
+          }
+        ],
+        "SubChoices": []
+      },
+      {
+        "Name": "Herd",
+        "Description": "You have cultivated a group of vessels from whom you can feed without concern.",
+        "Unique": "1",
+        "Choice": [
+          {
+            "Name": "Obvious Predator",
+            "Cost": "2",
+            "Positive": "0",
+            "Description": "You exude a predatory demeanor"
+          },
+          {
+            "Name": "Herd 1",
+            "Cost": "1",
+            "Description": "1 to 3 vessels"
+          },
+          {
+            "Name": "Herd 2",
+            "Cost": "2",
+            "Description": "4 to 7 vessels",
+          },
+          {
+            "Name": "Herd 3",
+            "Cost": "3",
+            "Description": "7 to 15 vessels"
+          },
+          {
+            "Name": "Herd 4",
+            "Cost": "4",
+            "Description": "16 to 30 vessels"
+          },
+          {
+            "Name": "Herd 5",
+            "Cost": "5",
+            "Description": "31 to 60 vessels"
+          }
+        ]
+      },
+      {
+        "Name": "Mythic",
+        "Description": "Mythic flaws",
+        "Unique" : "0",
+        "Choice":[
+          {
+            "Name": "Stake bait",
+            "Cost": "2",
+            "Description": "You meet final death upon being staked",
+            "Positive": "0"
+          },
+          {
+            "Name": "Folkloric Bane",
+            "Cost": "1",
+            "Description": "You take aggravated damage from folkloric bane",
+            "Positive": "0"
+          },
+          {
+            "Name": "Folkloric Block",
+            "Cost": "1",
+            "Description": "When Faced with folkloric block",
+            "Positive": "0"
+          },
+          {
+            "Name": "Stigmata",
+            "Cost": "1",
+            "Description": "You bleed when at hunger 4 or above",
+            "Positive": "0"
+          }
+        ]
+      }
+    ],
+    "PredatorTypes": [
+      {
+        "Name": "Alleycat",
+        "Description": "A combative assault-feeder",
+        "Humanity": "-1",
+        "BonusDiscipline":[
+          [
+            {
+              "Name": "Celerity",
+            },
+            {
+              "Name": "Potence",
+            }
+          ]
+        ],
+        "BonusSpecialities": [
+          [
+            {
+              "Skill": "Intimidation",
+              "Name": "Stickups",
+            },
+            {
+              "Skill": "Brawl",
+              "Name": "Grappling",
+            }
+          ]
+        ],
+        "BonusAdvantages": [
+          {
+            "Cost": "3",
+            "Advantages": [
+              {
+                "Addition": "Criminal Contacts",
+                "Category": "Contacts",
+                "Advantage": "Contacts 3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Name": "Blood Leech",
+        "Description": "You drink from other vampires",
+        "Humanity": "-1",
+        "Potency": "1",
+        "BonusDiscipline":[
+          [
+            {
+              "Name": "Celerity",
+            },
+            {
+              "Name": "Protean",
+            }
+          ]
+        ],
+        "BonusSpecialities": [
+          [
+            {
+              "Skill": "Stealth",
+              "Name": "against Kindred",
+            },
+            {
+              "Skill": "Brawl",
+              "Name": "Kindred",
+            }
+          ]
+        ],
+        "BonusFlaws": [
+          {
+            "Cost": "2",
+            "Advantages": [
+              {
+                "Addition": "Diablerist",
+                "Category": "Fame",
+                "Advantage": "Dark Secret 2"
+              },
+              {
+                "Addition": "",
+                "Category": "Status",
+                "Advantage": "Shunned"
+              }
+            ]
+          },
+          {
+            "Cost": "2",
+            "Advantages": [
+              {
+                "Addition": "Mortals",
+                "Category": "Feeding",
+                "Advantage": "Prey Exclusion"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Name": "Bagger",
+        "Description": "You drink from bagged blood",
+        "BonusDiscipline":[
+          [
+            {
+              "Name": "Blood Sorcery",
+              "RequiredClan": "Tremere"
+            },
+            {
+              "Name": "Obfuscate",
+            }
+          ]
+        ],
+        "BonusSpecialities": [
+          [
+            {
+              "Skill": "Larceny",
+              "Name": "Lock-picking",
+            },
+            {
+              "Skill": "Streetwise",
+              "Name": "Black Market",
+            }
+          ]
+        ],
+        "BonusFlaws": [
+          {
+            "Cost": "2",
+            "Advantages": [
+              {
+                "Addition": "believes you owe them",
+                "Category": "Allies",
+                "Advantage": "Enemy 2"
+              }
+            ]
+          }
+        ],
+        "BonusAdvantages": [
+          {
+            "Cost": "3",
+            "Advantages": [
+              {
+                "Addition": "",
+                "Category": "Feeding",
+                "Advantage": "Iron Gullet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Name": "Cleaver",
+        "Description": "You feed covertly from family",
+        "BonusSpecialities": [
+          [
+            {
+              "Skill": "Persuasion",
+              "Name": "Gaslighting",
+            },
+            {
+              "Skill": "Subterfuge",
+              "Name": "Coverups",
+            }
+          ]
+        ],
+        "BonusDiscipline":[
+          [
+            {
+              "Name": "Dominate",
+            },
+            {
+              "Name": "Animalism",
+            }
+          ]
+        ],
+        "BonusFlaws": [
+          {
+            "Cost": "1",
+            "Advantages": [
+              {
+                "Addition": "Cleaver",
+                "Category": "Fame",
+                "Advantage": "Dark Secret"
+              }
+            ]
+          }
+        ],
+        "BonusAdvantages": [
+          {
+            "Cost": "2",
+            "Advantages": [
+              {
+                "Addition": "",
+                "Category": "Herd",
+                "Advantage": "Herd 2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Name": "Consensualist",
+        "Description": "You only feed from the willing",
+        "Humanity": "1",
+        "BonusSpecialities": [
+          [
+            {
+              "Skill": "Medicine",
+              "Name": "Phlebotomy",
+            },
+            {
+              "Skill": "Persuasion",
+              "Name": "Victims",
+            }
+          ]
+        ],
+        "BonusDiscipline":[
+          [
+            {
+              "Name": "Auspex",
+            },
+            {
+              "Name": "Fortitude",
+            }
+          ]
+        ],
+        "BonusFlaws": [
+          {
+            "Cost": "1",
+            "Advantages": [
+              {
+                "Addition": "Masquerade Breacher",
+                "Category": "Fame",
+                "Advantage": "Dark Secret"
+              }
+            ]
+          },
+          {
+            "Cost": "1",
+            "Advantages": [
+              {
+                "Addition": "Non-consenting",
+                "Category": "Feeding",
+                "Advantage": "Prey Exclusion"
+              }
+            ]
+          }
+        ],
+      },
+      {
+        "Name": "Oriris",
+        "Description": "You feed on your fans",
+        "BonusSpecialities": [
+          [
+            {
+              "Skill": "Occult",
+              "Name": "Specific Tradition",
+            },
+            {
+              "Skill": "Performance",
+              "Name": "Specific entertainment field",
+            }
+          ]
+        ],
+        "BonusDiscipline":[
+          [
+            {
+              "Name": "Blood Sorcery",
+              "RequiredClan": "Tremere"
+            },
+            {
+              "Name": "Presence",
+            }
+          ]
+        ],
+        "BonusAdvantages": [
+          {
+            "Cost": "3",
+            "Advantages": [
+              {
+                "Addition": "",
+                "Category": "Herd",
+                "Advantage": ""
+              },
+              {
+                "Addition": "",
+                "Category": "Fame",
+                "Advantage": ""
+              }
+            ]
+          }
+        ],
+        "BonusFlaws": [
+          {
+            "Cost": "2",
+            "Advantages": [
+              {
+                "Addition": "",
+                "Category": "Allies",
+                "Advantage": ""
+              },
+              {
+                "Addition": "",
+                "Category": "Mythic",
+                "Advantage": ""
+              }
+            ]
+          }
+        ],
+      },
+    ],
+    "SkillDistributions": [
+      {
+        "Name": "Jack Of All Trades",
+        "SkillDistribution": [
+          {
+            "Rating": "3",
+            "Number": "1"
+          },
+          {
+            "Rating": "2",
+            "Number": "8"
+          },
+          {
+            "Rating": "1",
+            "Number": "10"
+          }
+        ]
+      },
+      {
+        "Name": "Balanced",
+        "SkillDistribution": [
+          {
+            "Rating": "3",
+            "Number": "3"
+          },
+          {
+            "Rating": "2",
+            "Number": "5"
+          },
+          {
+            "Rating": "1",
+            "Number": "7"
+          }
+        ]
+      },
+      {
+        "Name": "Specialist",
+        "SkillDistribution": [
+          {
+            "Rating": "4",
+            "Number": "1"
+          },
+          {
+            "Rating": "3",
+            "Number": "3"
+          },
+          {
+            "Rating": "2",
+            "Number": "3"
+          },
+          {
+            "Rating": "1",
+            "Number": "3"
+          }
+        ]
+      }
+    ],
+    "CharacterCreations": [
+      {
+        "Name": "Childe",
+        "Description": "Base young type",
+        "AttributeDistribution": [
+          {
+            "Rating": "4",
+            "Number": "1"
+          },
+          {
+            "Rating": "3",
+            "Number": "3"
+          },
+          {
+            "Rating": "1",
+            "Number": "1"
+          },
+          {
+            "Rating": "2",
+            "Number": "4"
+          }
+        ],
+        "SkillDistribution": [
+          "Jack Of All Trades",
+          "Balanced",
+          "Specialist"
+        ],
+        "DisciplineDistribution": [
+          {
+            "Rating": "2",
+            "Number": "1"
+          },
+          {
+            "Rating": "1",
+            "Number": "1"
+          }
+        ],
+        "AdvantagePool": "7",
+        "FlawPool": "2",
+        "BaseHumanity": "7",
+        "BaseXP": "0",
+      }
+    ],
+    "LevelUpRequirements": {
+      "SpecialityXP": "3",
+      "SkillXP": "3",
+      "AttributeXP": "5",
+      "OwnDisciplineXP": "5",
+      "OtherDisciplineXP": "7",
+      "ExceptionDisciplineXP": "6",
+      "PotencyXP": "10",
+      "HumanityXP": "10",
+      "RitualXP": "3",
+      "AdvantageXP": "3",
+    },
+    "BloodTable": {
+      "0": {
+        "Blood Surge": "1",
+        "Mend": "1",
+        "Power Bonus": "0",
+        "Discipline Re-Roll": "0",
+        "Bane": "0",
+        "Feeding Penalty": "",
+      },
+      "1": {
+        "Blood Surge": "2",
+        "Mend": "1",
+        "Power Bonus": "0",
+        "Discipline Re-Roll": "1",
+        "Bane": "2",
+        "Feeding Penalty": "",
+      },
+      "2": {
+        "Blood Surge": "2",
+        "Mend": "2",
+        "Power Bonus": "1",
+        "Discipline Re-Roll": "1",
+        "Bane": "2",
+        "Feeding Penalty": "Animal and bagged blood slakes half hunger",
+      },
+      "3": {
+        "Blood Surge": "3",
+        "Mend": "2",
+        "Power Bonus": "1",
+        "Discipline Re-Roll": "2",
+        "Bane": "3",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger",
+      },
+      "4": {
+        "Blood Surge": "3",
+        "Mend": "3",
+        "Power Bonus": "2",
+        "Discipline Re-Roll": "2",
+        "Bane": "3",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 1 less Hunger per human",
+      },
+      "5": {
+        "Blood Surge": "4",
+        "Mend": "3",
+        "Power Bonus": "2",
+        "Discipline Re-Roll": "3",
+        "Bane": "4",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 1 less Hunger per human, Must drain and kill to reduce hunger below 2",
+      },
+      "6": {
+        "Blood Surge": "4",
+        "Mend": "3",
+        "Power Bonus": "3",
+        "Discipline Re-Roll": "3",
+        "Bane": "4",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 2 less Hunger per human, Must drain and kill to reduce hunger below 2",
+      },
+      "7": {
+        "Blood Surge": "5",
+        "Mend": "3",
+        "Power Bonus": "3",
+        "Discipline Re-Roll": "4",
+        "Bane": "5",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 2 less Hunger per human, Must drain and kill to reduce hunger below 2",
+      },
+      "8": {
+        "Blood Surge": "5",
+        "Mend": "4",
+        "Power Bonus": "4",
+        "Discipline Re-Roll": "4",
+        "Bane": "5",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 2 less Hunger per human, Must drain and kill to reduce hunger below 3",
+      },
+      "9": {
+        "Blood Surge": "6",
+        "Mend": "4",
+        "Power Bonus": "4",
+        "Discipline Re-Roll": "5",
+        "Bane": "6",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 2 less Hunger per human, Must drain and kill to reduce hunger below 3",
+      },
+      "10": {
+        "Blood Surge": "6",
+        "Mend": "5",
+        "Power Bonus": "5",
+        "Discipline Re-Roll": "5",
+        "Bane": "6",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 3 less Hunger per human, Must drain and kill to reduce hunger below 3",
+      }
+    }
+}

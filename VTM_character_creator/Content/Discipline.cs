@@ -15,10 +15,12 @@ namespace VTM_character_creator.Content
         private string fluff;
         private string system;
         private uint level;
+        private uint cost;
+        private string duration;
         private Roll roll;
         private Roll opposingRoll;
 
-        public Discipline(DisciplineFamily family, string name, string fluff, string system, uint level, Roll roll, Roll opposingRoll)
+        public Discipline(DisciplineFamily family, string name, string fluff, string system, uint level, Roll roll, Roll opposingRoll, uint cost, string duration)
         {
             this.family = family;
             this.name = name;
@@ -27,6 +29,8 @@ namespace VTM_character_creator.Content
             this.level = level;
             this.roll = roll;
             this.opposingRoll = opposingRoll;
+            this.cost = cost;
+            this.duration = duration;
         }
     }
 }

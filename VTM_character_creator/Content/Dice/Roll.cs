@@ -8,10 +8,10 @@ namespace VTM_character_creator.Content.Dice
 {
     class Roll
     {
-        private Spec stat1;
-        private Spec stat2;
+        private string stat1;
+        private string stat2;
 
-        public Roll(Spec stat1, Spec stat2)
+        public Roll(string stat1, string stat2)
         {
             this.stat1 = stat1;
             this.stat2 = stat2;
