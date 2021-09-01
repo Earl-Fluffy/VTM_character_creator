@@ -40,6 +40,7 @@ namespace VTM_character_creator.Content
 
             if (!System.IO.File.Exists(fileLocation))
             {
+                Console.WriteLine("No File detected");
                 return;//If file does not exist, stop creating
             }
             string json = System.IO.File.ReadAllText(fileLocation);
