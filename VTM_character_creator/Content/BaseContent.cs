@@ -23,6 +23,9 @@ namespace VTM_character_creator.Content
         private Dictionary<string, CharacterCreation> characterCreations;
         private Dictionary<string, SkillDistribution> skillDistributions;
 
+        private LevelUpRequirements levelUpRequirements;
+        private BloodTable bloodTable;
+
         public BaseContent(string fileLocation)
         {
             attributes = new Dictionary<string, PlayerSpecs.Attribute>();
@@ -296,6 +299,32 @@ namespace VTM_character_creator.Content
                 }
 
                 characterCreations.Add(characterCreationName, new CharacterCreation(characterCreationName, characterCreationDescription, characterCreationAttributes, characterCreationSkills, characterCreationDisciplines, characterCreationAdvantage, characterCreationFlaws, characterCreationHumanity, characterCreationXP));
+            }
+
+            JObject loadedLevelUpRequirements = (JObject)parsedJson["LevelUpRequirements"];
+            {
+                uint specialityXP = Convert.ToUInt32(loadedLevelUpRequirements["SpecialityXP"].ToString());
+                uint skillXP = Convert.ToUInt32(loadedLevelUpRequirements["SkillXP"].ToString());
+                uint attributeXP = Convert.ToUInt32(loadedLevelUpRequirements["AttributeXP"].ToString());
+                uint ownDisciplineXP = Convert.ToUInt32(loadedLevelUpRequirements["OwnDisciplineXP"].ToString());
+                uint otherDisciplineXP = Convert.ToUInt32(loadedLevelUpRequirements["OtherDisciplineXP"].ToString());
+                uint exceptionDisciplineXP = Convert.ToUInt32(loadedLevelUpRequirements["ExceptionDisciplineXP"].ToString());
+                uint potencyXP = Convert.ToUInt32(loadedLevelUpRequirements["PotencyXP"].ToString());
+                uint humanityXP = Convert.ToUInt32(loadedLevelUpRequirements["HumanityXP"].ToString());
+                uint ritualXP = Convert.ToUInt32(loadedLevelUpRequirements["RitualXP"].ToString());
+                uint advantageXP = Convert.ToUInt32(loadedLevelUpRequirements["AdvantageXP"].ToString());
+
+                levelUpRequirements = new LevelUpRequirements(specialityXP, skillXP, attributeXP, ownDisciplineXP, otherDisciplineXP, exceptionDisciplineXP, potencyXP, humanityXP, ritualXP, advantageXP);
+            }
+
+            JObject loadedBloodTable = (JObject)parsedJson["BloodTable"];
+            {
+                List<BloodTableRow> bloodTableRows = new List<BloodTableRow>();
+                for(int i = 0; i<=10; ++i)
+                {
+                    bloodTableRows.Add(new BloodTableRow((JObject)loadedBloodTable[i.ToString()]));
+                }
+                bloodTable = new BloodTable(bloodTableRows);
             }
         }
     }

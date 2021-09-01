@@ -37,6 +37,11 @@
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Collections.NonGeneric, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.NonGeneric.4.3.0\lib\net46\System.Collections.NonGeneric.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,9 +58,11 @@
     <Compile Include="Content\Advantages\AdvantageCategory.cs" />
     <Compile Include="Content\BaseContent.cs" />
     <Compile Include="Content\CharacterCreation.cs" />
+    <Compile Include="Content\PlayerSpecs\LevelUpRequirements.cs" />
     <Compile Include="Content\SkillDistribution.cs" />
     <Compile Include="Content\Vampire\BaneCompulsion.cs" />
     <Compile Include="Content\Vampire\BloodTable.cs" />
+    <Compile Include="Content\Vampire\BloodTableRow.cs" />
     <Compile Include="Content\Vampire\Clan.cs" />
     <Compile Include="Content\Discipline.cs" />
     <Compile Include="Content\PlayerSpecs\Attribute.cs" />

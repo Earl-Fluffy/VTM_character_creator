@@ -783,6 +783,63 @@
         ],
       },
     ],
+    "SkillDistributions": [
+      {
+        "Name": "Jack Of All Trades",
+        "SkillDistribution": [
+          {
+            "Rating": "3",
+            "Number": "1"
+          },
+          {
+            "Rating": "2",
+            "Number": "8"
+          },
+          {
+            "Rating": "1",
+            "Number": "10"
+          }
+        ]
+      },
+      {
+        "Name": "Balanced",
+        "SkillDistribution": [
+          {
+            "Rating": "3",
+            "Number": "3"
+          },
+          {
+            "Rating": "2",
+            "Number": "5"
+          },
+          {
+            "Rating": "1",
+            "Number": "7"
+          }
+        ]
+      },
+      {
+        "Name": "Specialist",
+        "SkillDistribution": [
+          {
+            "Rating": "4",
+            "Number": "1"
+          },
+          {
+            "Rating": "3",
+            "Number": "3"
+          },
+          {
+            "Rating": "2",
+            "Number": "3"
+          },
+          {
+            "Rating": "1",
+            "Number": "3"
+          }
+        ]
+      }
+    ],
     "CharacterCreations": [
       {
         "Name": "Childe",
@@ -805,6 +862,127 @@
             "Number": "4"
           }
         ],
+        "SkillDistribution": [
+          "Jack Of All Trades",
+          "Balanced",
+          "Specialist"
+        ],
+        "DisciplineDistribution": [
+          {
+            "Rating": "2",
+            "Number": "1"
+          },
+          {
+            "Rating": "1",
+            "Number": "1"
+          }
+        ],
+        "AdvantagePool": "7",
+        "FlawPool": "2",
+        "BaseHumanity": "7",
+        "BaseXP": "0",
       }
     ],
+    "LevelUpRequirements": {
+      "SpecialityXP": "3",
+      "SkillXP": "3",
+      "AttributeXP": "5",
+      "OwnDisciplineXP": "5",
+      "OtherDisciplineXP": "7",
+      "ExceptionDisciplineXP": "6",
+      "PotencyXP": "10",
+      "HumanityXP": "10",
+      "RitualXP": "3",
+      "AdvantageXP": "3",
+    },
+    "BloodTable": {
+      "0": {
+        "Blood Surge": "1",
+        "Mend": "1",
+        "Power Bonus": "0",
+        "Discipline Re-Roll": "0",
+        "Bane": "0",
+        "Feeding Penalty": "",
+      },
+      "1": {
+        "Blood Surge": "2",
+        "Mend": "1",
+        "Power Bonus": "0",
+        "Discipline Re-Roll": "1",
+        "Bane": "2",
+        "Feeding Penalty": "",
+      },
+      "2": {
+        "Blood Surge": "2",
+        "Mend": "2",
+        "Power Bonus": "1",
+        "Discipline Re-Roll": "1",
+        "Bane": "2",
+        "Feeding Penalty": "Animal and bagged blood slakes half hunger",
+      },
+      "3": {
+        "Blood Surge": "3",
+        "Mend": "2",
+        "Power Bonus": "1",
+        "Discipline Re-Roll": "2",
+        "Bane": "3",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger",
+      },
+      "4": {
+        "Blood Surge": "3",
+        "Mend": "3",
+        "Power Bonus": "2",
+        "Discipline Re-Roll": "2",
+        "Bane": "3",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 1 less Hunger per human",
+      },
+      "5": {
+        "Blood Surge": "4",
+        "Mend": "3",
+        "Power Bonus": "2",
+        "Discipline Re-Roll": "3",
+        "Bane": "4",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 1 less Hunger per human, Must drain and kill to reduce hunger below 2",
+      },
+      "6": {
+        "Blood Surge": "4",
+        "Mend": "3",
+        "Power Bonus": "3",
+        "Discipline Re-Roll": "3",
+        "Bane": "4",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 2 less Hunger per human, Must drain and kill to reduce hunger below 2",
+      },
+      "7": {
+        "Blood Surge": "5",
+        "Mend": "3",
+        "Power Bonus": "3",
+        "Discipline Re-Roll": "4",
+        "Bane": "5",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 2 less Hunger per human, Must drain and kill to reduce hunger below 2",
+      },
+      "8": {
+        "Blood Surge": "5",
+        "Mend": "4",
+        "Power Bonus": "4",
+        "Discipline Re-Roll": "4",
+        "Bane": "5",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 2 less Hunger per human, Must drain and kill to reduce hunger below 3",
+      },
+      "9": {
+        "Blood Surge": "6",
+        "Mend": "4",
+        "Power Bonus": "4",
+        "Discipline Re-Roll": "5",
+        "Bane": "6",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 2 less Hunger per human, Must drain and kill to reduce hunger below 3",
+      },
+      "10": {
+        "Blood Surge": "6",
+        "Mend": "5",
+        "Power Bonus": "5",
+        "Discipline Re-Roll": "5",
+        "Bane": "6",
+        "Feeding Penalty": "Animal and bagged blood slakes no Hunger, Slake 3 less Hunger per human, Must drain and kill to reduce hunger below 3",
+      }
+    }
 }
